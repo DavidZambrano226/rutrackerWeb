@@ -1,0 +1,17 @@
+<h3>{{leyenda}}</h3>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-primary" type="button" (click)="cambiarValor(-5)">
+        <i class="mdi mdi-minus"></i>
+      </button>
+    </div>
+    <input type="number" class="form-control" placeholder=""name="porcentaje"  [(ngModel)]="porcentaje">
+    <div class="input-group-prepend">
+      <button class="btn btn-primary" type="button" (click)="cambiarValor(+5)">
+        
+        <i class="mdi mdi-plus"></i>
+
+      </button>
+    </div>
+</div>

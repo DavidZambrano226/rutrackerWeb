@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProgressComponent } from "./progress/progress.component";
@@ -8,16 +9,21 @@ import { PagesComponent } from "./pages.component";
 //Modulo
 import { SharedModule } from "../shared/shared.module";
 import { PAGES_ROUTES } from "./pages.routes";
+import { IncrementadorComponent } from "../components/incrementador/incrementador.component";
 
 //el exports lo coloco unicamente para exportar los componentes que quiero
 //que puedan ser usados por otros componentes externos
+
+//temporal
+
 
 @NgModule({
     declarations:[
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
-        PagesComponent
+        PagesComponent,
+        IncrementadorComponent
     ],
     exports:[
         DashboardComponent,
@@ -26,7 +32,8 @@ import { PAGES_ROUTES } from "./pages.routes";
     ],
     imports:[
         SharedModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        FormsModule
 
     ]
 })
