@@ -10,6 +10,10 @@ import { PagesComponent } from "./pages.component";
 import { SharedModule } from "../shared/shared.module";
 import { PAGES_ROUTES } from "./pages.routes";
 import { IncrementadorComponent } from "../components/incrementador/incrementador.component";
+import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+
+//Graficas
+import { ChartsModule } from 'ng2-charts';
 
 //el exports lo coloco unicamente para exportar los componentes que quiero
 //que puedan ser usados por otros componentes externos
@@ -23,7 +27,8 @@ import { IncrementadorComponent } from "../components/incrementador/incrementado
         ProgressComponent,
         Graficas1Component,
         PagesComponent,
-        IncrementadorComponent
+        IncrementadorComponent,
+        GraficoDonaComponent
     ],
     exports:[
         DashboardComponent,
@@ -33,7 +38,8 @@ import { IncrementadorComponent } from "../components/incrementador/incrementado
     imports:[
         SharedModule,
         PAGES_ROUTES,
-        FormsModule
+        FormsModule,
+        ChartsModule
 
     ]
 })

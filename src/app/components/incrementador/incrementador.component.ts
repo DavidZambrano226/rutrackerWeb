@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -20,6 +20,11 @@ export class IncrementadorComponent implements OnInit {
   //aqui con el output regresamos un valor al padre
   @Output() cambioValor:EventEmitter<number> = new EventEmitter();
 
+  //con viewclhild podemos manejar varios componentes unicamente referenciando uno
+  //para hacer referencia, en el html le agrego un hash ( # )seguido de un nombre
+
+  @ViewChild('txtProgress') txtProgress:ElementRef;
+
   constructor() {
 
    }
@@ -28,6 +33,28 @@ export class IncrementadorComponent implements OnInit {
 
   ngOnInit() {
     console.log('leyenda: ', this.leyenda);
+    
+  }
+
+  onChanges( newValue:number ){
+    // console.log(newValue);
+    
+    //evitamos que el input deje escribir mas de 100 y numero negativos, aqui obtenemos el input
+    // let elemHTML:any = document.getElementsByName('porcentaje')[0];
+    
+    if (newValue >= 100) {
+      this.porcentaje = 100;
+    }else if(newValue <= 0){
+      this.porcentaje = 0;
+    }else{
+      this.porcentaje = newValue;
+
+    }
+    //aqui usando la propiedad value, lo seteamos a lo permitido en porcentaje
+    // elemHTML.value = this.porcentaje;
+    this.txtProgress.nativeElement.value = this.porcentaje;
+  
+    this.cambioValor.emit(this.porcentaje);
     
   }
   cambiarValor( valor ){
@@ -42,6 +69,9 @@ export class IncrementadorComponent implements OnInit {
     this.porcentaje = this.porcentaje + valor;
 
     this.cambioValor.emit(this.porcentaje);
+
+    //establecemos el foco en un elemento
+    this.txtProgress.nativeElement.focus();
   }
 
 }
