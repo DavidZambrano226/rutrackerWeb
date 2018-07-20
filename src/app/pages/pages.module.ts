@@ -14,6 +14,7 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
 
 //Graficas
 import { ChartsModule } from 'ng2-charts';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 //el exports lo coloco unicamente para exportar los componentes que quiero
 //que puedan ser usados por otros componentes externos
@@ -28,7 +29,8 @@ import { ChartsModule } from 'ng2-charts';
         Graficas1Component,
         PagesComponent,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccountSettingsComponent
     ],
     exports:[
         DashboardComponent,
