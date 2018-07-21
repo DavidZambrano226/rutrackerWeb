@@ -32,7 +32,7 @@ export class IncrementadorComponent implements OnInit {
   
 
   ngOnInit() {
-    console.log('leyenda: ', this.leyenda);
+    
     
   }
 
